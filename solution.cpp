@@ -23,18 +23,18 @@ private:
     // private helper function
     void BFS(vector<vector<char>> &iGraph, int r, int c) {
         queue<pair<int, int>> Q;
-        Q.push(r,c);
+        Q.push({r,c});
         
        iGraph[r][c] = '0';
         
         while (!Q.empty()) {
-            pair<int, int> p = todo.front();
-                        Q.pop();
-                        for (int k = 0; k < 4; k++) {
-                            int i = p.first + offsets[k], j = p.second + offsets[k + 1];
-                            if (i >= 0 && i < m && j >= 0 && j < n && grid[i][c] == '1') {
-                                grid[i][j] = '0';
-                                todo.push({i, j});
+            pair<int, int> p = Q.front();
+                 Q.pop();
+                 for (int k = 0; k < 4; k++) {
+                      int i = p.first + offsets[k], j = p.second + offsets[k + 1];
+                      if (i >= 0 && i < m && j >= 0 && j < n && grid[i][c] == '1') {
+                          grid[i][j] = '0';
+                          Q.push({i, j});
                 }
             }
         }
