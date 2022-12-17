@@ -22,7 +22,8 @@ public:
 private:
     // private helper function
     void BFS(vector<vector<char>> &iGraph, int r, int c) {
-        queue<int> Q;
+        queue<pair<int, int>> Q;
+        
         int* visited;
         visited = new int[gSize] {0};
 
