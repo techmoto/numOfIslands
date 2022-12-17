@@ -25,23 +25,18 @@ private:
         queue<pair<int, int>> Q;
         Q.push(r,c);
         
+       iGraph[r][c] = '0';
         
-        int* visited;
-        visited = new int[gSize] {0};
-
-        visited[vtx] = 1;
-        Q.emplace(vtx);
-
         while (!Q.empty()) {
-            int next = Q.front();
-            Q.pop();
-            for (int v = 0; v < gSize; v++) {  
-                if (iGraph[next][v] == '1' && visited[v] == 0) { 
-                    visited[v] = 1;
-                    Q.emplace(v);
+            pair<int, int> p = todo.front();
+                        todo.pop();
+                        for (int k = 0; k < 4; k++) {
+                            int r = p.first + offsets[k], c = p.second + offsets[k + 1];
+                            if (r >= 0 && r < m && c >= 0 && c < n && grid[r][c] == '1') {
+                                grid[r][c] = '0';
+                                todo.push({r, c});
                 }
             }
         }
-        delete[] visited;
     }
 };
