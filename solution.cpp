@@ -2,13 +2,14 @@ class Solution {
 public:
     int numIslands(vector<vector<char>>& grid) {
         
-        int numIslands = 0;
-
-        for(int i = 0; i < grid.size(); i++){
-            for(int j = 0; i < grid.size(); j++){
-                if('1' == grid[i][j]){
-                numIslands++;
-                BFS(grid,i,j);
+        int numIslands = 0; // counter variable to sum the number of islands
+        
+        // using for loops to map a 2D grid
+        for(int r = 0; r < grid.size(); r++){ // rows loop
+            for(int c = 0; c < grid.size(); c++){ // colmuns loop
+                if(grid[r][c] == '1'){
+                    numIslands++;  // incremeants the number of islands
+                    BFS(grid,r,c); // Breadth Search Algorithnm 
                 }
             }
         }
