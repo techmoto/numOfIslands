@@ -29,12 +29,12 @@ private:
         
         while (!Q.empty()) {
             pair<int, int> p = todo.front();
-                        todo.pop();
+                        Q.pop();
                         for (int k = 0; k < 4; k++) {
-                            int r = p.first + offsets[k], c = p.second + offsets[k + 1];
-                            if (r >= 0 && r < m && c >= 0 && c < n && grid[r][c] == '1') {
-                                grid[r][c] = '0';
-                                todo.push({r, c});
+                            int i = p.first + offsets[k], j = p.second + offsets[k + 1];
+                            if (i >= 0 && i < m && j >= 0 && j < n && grid[i][c] == '1') {
+                                grid[i][j] = '0';
+                                todo.push({i, j});
                 }
             }
         }
