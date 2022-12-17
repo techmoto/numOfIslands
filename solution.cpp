@@ -8,7 +8,7 @@ public:
             for(int j = 0; i < grid.size(); j++){
                 if('1' == grid[i][j]){
                 numIslands++;
-                BFS(1,grid,i);
+                BFS(grid,i,j);
                 }
             }
         }
