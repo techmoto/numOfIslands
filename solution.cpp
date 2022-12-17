@@ -8,9 +8,9 @@ public:
         int numIslands = 0; // counter variable to sum the number of islands
         
         // using for loops to map a 2D grid
-        for(int r = 0; r < grid.size(); r++){ // rows loop
-            for(int c = 0; c < grid.size(); c++){ // colmuns loop
-                if(grid[r][c] == '1'){
+        for(int r = 0; r < grid.size(); r++){ // rows loop, iteration determined by vector(grid) size 
+            for(int c = 0; c < grid.size(); c++){ // colmuns loop, iteration determined by vector(grid) size 
+                if(grid[r][c] == '1'){ // if vertex value of '1' has appeared in the gird
                     numIslands++;  // incremeants the number of islands
                     BFS(grid,r,c); // Breadth Search Algorithnm, checks for all vertices to see if it has edges
                 }
